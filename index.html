@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoBooth Pro - Foto Studio Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#gradient1)"/>
+                    <path d="M20 10L15 15H12V28H28V15H25L20 10Z" fill="white"/>
+                    <circle cx="20" cy="21" r="4" fill="url(#gradient2)"/>
+                    <defs>
+                        <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#bb00ff"/>
+                            <stop offset="100%" stop-color="#90b5ff"/>
+                        </linearGradient>
+                        <linearGradient id="gradient2" x1="16" y1="17" x2="24" y2="25">
+                            <stop offset="0%" stop-color="#bb00ff"/>
+                            <stop offset="100%" stop-color="#3d107a"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>PhotoBooth Pro</h1>
+            </div>
+            <nav class="nav">
+                <a href="#camera" class="nav-link active">Kamera</a>
+                <a href="#gallery" class="nav-link">Galeri</a>
+                <a href="#settings" class="nav-link">Pengaturan</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="photobooth-wrapper">
+                
+                <!-- Camera Section -->
+                <section id="camera" class="camera-section">
+                    <div class="camera-container">
+                        <!-- Camera Preview Area -->
+                        <div class="camera-preview">
+                            <div class="preview-placeholder">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                    <circle cx="60" cy="60" r="50" stroke="#ae75fb" stroke-width="3" stroke-dasharray="5 5"/>
+                                    <path d="M60 30L45 45H36V81H84V45H75L60 30Z" fill="#ae75fb" opacity="0.3"/>
+                                    <circle cx="60" cy="63" r="15" stroke="#ae75fb" stroke-width="3"/>
+                                </svg>
+                                <p>Kamera Siap</p>
+                            </div>
+                            
+                            <!-- Countdown Overlay -->
+                            <div class="countdown-overlay">
+                                <div class="countdown-number">3</div>
+                            </div>
+
+                            <!-- Filter Preview Overlays -->
+                            <div class="filter-overlay grayscale"></div>
+                            <div class="filter-overlay sepia"></div>
+                            <div class="filter-overlay vintage"></div>
+                            
+                            <!-- Frame Overlays -->
+                            <div class="frame-overlay frame-classic"></div>
+                            <div class="frame-overlay frame-heart"></div>
+                            <div class="frame-overlay frame-polaroid"></div>
+                        </div>
+
+                        <!-- Camera Controls -->
+                        <div class="camera-controls">
+                            <div class="control-group">
+                                <input type="checkbox" id="grid-toggle" class="toggle-input">
+                                <label for="grid-toggle" class="control-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 3H3V9H9V3Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9 15H3V21H9V15Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M21 3H15V9H21V3Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M21 15H15V21H21V15Z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Grid</span>
+                                </label>
+                            </div>
+
+                            <div class="control-group">
+                                <input type="checkbox" id="timer-toggle" class="toggle-input">
+                                <label for="timer-toggle" class="control-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M12 9V13L15 15" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M10 3H14" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Timer</span>
+                                </label>
+                            </div>
+
+                            <button class="capture-button">
+                                <span class="capture-ring"></span>
+                                <span class="capture-dot"></span>
+                            </button>
+
+                            <div class="control-group">
+                                <input type="checkbox" id="flash-toggle" class="toggle-input">
+                                <label for="flash-toggle" class="control-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Flash</span>
+                                </label>
+                            </div>
+
+                            <div class="control-group">
+                                <input type="checkbox" id="flip-toggle" class="toggle-input">
+                                <label for="flip-toggle" class="control-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M8 9L12 5L16 9" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Flip</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Selection -->
+                        <div class="filter-section">
+                            <h3 class="section-title">Filter</h3>
+                            <div class="filter-grid">
+                                <input type="radio" name="filter" id="filter-none" class="filter-input" checked>
+                                <label for="filter-none" class="filter-card">
+                                    <div class="filter-preview normal"></div>
+                                    <span>Normal</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-bw" class="filter-input">
+                                <label for="filter-bw" class="filter-card">
+                                    <div class="filter-preview bw"></div>
+                                    <span>B&W</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-sepia" class="filter-input">
+                                <label for="filter-sepia" class="filter-card">
+                                    <div class="filter-preview sepia-filter"></div>
+                                    <span>Sepia</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-vintage" class="filter-input">
+                                <label for="filter-vintage" class="filter-card">
+                                    <div class="filter-preview vintage-filter"></div>
+                                    <span>Vintage</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-cool" class="filter-input">
+                                <label for="filter-cool" class="filter-card">
+                                    <div class="filter-preview cool-filter"></div>
+                                    <span>Cool</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-warm" class="filter-input">
+                                <label for="filter-warm" class="filter-card">
+                                    <div class="filter-preview warm-filter"></div>
+                                    <span>Warm</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-dramatic" class="filter-input">
+                                <label for="filter-dramatic" class="filter-card">
+                                    <div class="filter-preview dramatic-filter"></div>
+                                    <span>Dramatic</span>
+                                </label>
+
+                                <input type="radio" name="filter" id="filter-neon" class="filter-input">
+                                <label for="filter-neon" class="filter-card">
+                                    <div class="filter-preview neon-filter"></div>
+                                    <span>Neon</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Frame Selection -->
+                        <div class="frame-section">
+                            <h3 class="section-title">Bingkai</h3>
+                            <div class="frame-grid">
+                                <input type="radio" name="frame" id="frame-none" class="frame-input" checked>
+                                <label for="frame-none" class="frame-card">
+                                    <div class="frame-preview no-frame"></div>
+                                    <span>Tanpa Bingkai</span>
+                                </label>
+
+                                <input type="radio" name="frame" id="frame-classic" class="frame-input">
+                                <label for="frame-classic" class="frame-card">
+                                    <div class="frame-preview classic-frame"></div>
+                                    <span>Klasik</span>
+                                </label>
+
+                                <input type="radio" name="frame" id="frame-polaroid" class="frame-input">
+                                <label for="frame-polaroid" class="frame-card">
+                                    <div class="frame-preview polaroid-frame"></div>
+                                    <span>Polaroid</span>
+                                </label>
+
+                                <input type="radio" name="frame" id="frame-heart" class="frame-input">
+                                <label for="frame-heart" class="frame-card">
+                                    <div class="frame-preview heart-frame"></div>
+                                    <span>Love</span>
+                                </label>
+
+                                <input type="radio" name="frame" id="frame-film" class="frame-input">
+                                <label for="frame-film" class="frame-card">
+                                    <div class="frame-preview film-frame"></div>
+                                    <span>Film</span>
+                                </label>
+
+                                <input type="radio" name="frame" id="frame-gold" class="frame-input">
+                                <label for="frame-gold" class="frame-card">
+                                    <div class="frame-preview gold-frame"></div>
+                                    <span>Gold</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Sticker Selection -->
+                        <div class="sticker-section">
+                            <h3 class="section-title">Stiker</h3>
+                            <div class="sticker-grid">
+                                <input type="checkbox" id="sticker-1" class="sticker-input">
+                                <label for="sticker-1" class="sticker-card">😊</label>
+
+                                <input type="checkbox" id="sticker-2" class="sticker-input">
+                                <label for="sticker-2" class="sticker-card">❤️</label>
+
+                                <input type="checkbox" id="sticker-3" class="sticker-input">
+                                <label for="sticker-3" class="sticker-card">⭐</label>
+
+                                <input type="checkbox" id="sticker-4" class="sticker-input">
+                                <label for="sticker-4" class="sticker-card">🎉</label>
+
+                                <input type="checkbox" id="sticker-5" class="sticker-input">
+                                <label for="sticker-5" class="sticker-card">🌈</label>
+
+                                <input type="checkbox" id="sticker-6" class="sticker-input">
+                                <label for="sticker-6" class="sticker-card">🎈</label>
+
+                                <input type="checkbox" id="sticker-7" class="sticker-input">
+                                <label for="sticker-7" class="sticker-card">👑</label>
+
+                                <input type="checkbox" id="sticker-8" class="sticker-input">
+                                <label for="sticker-8" class="sticker-card">🦋</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery Section -->
+                <section id="gallery" class="gallery-section">
+                    <div class="gallery-header">
+                        <h2>Galeri Foto</h2>
+                        <div class="gallery-actions">
+                            <button class="btn-secondary">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Pilih Semua
+                            </button>
+                            <button class="btn-danger">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 5H17M8 9V15M12 9V15M7 5V3H13V5M5 5H15L14 17H6L5 5Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-grid">
+                        <!-- Photo Card 1 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-1">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#ae75fb" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#ae75fb" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">Hari ini, 14:30</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 2 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-2">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#90b5ff" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#90b5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">Hari ini, 14:25</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 3 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-3">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#bb00ff" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#bb00ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">Hari ini, 14:20</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 4 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-4">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#3d107a" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#3d107a" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">Kemarin, 16:45</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 5 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-5">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#ae75fb" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#ae75fb" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">Kemarin, 15:30</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 6 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <div class="photo-placeholder photo-sample-6">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10L22.5 17.5H15V45H45V17.5H37.5L30 10Z" fill="#90b5ff" opacity="0.5"/>
+                                        <circle cx="30" cy="31" r="8" stroke="#90b5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <input type="checkbox" class="photo-select">
+                                <div class="photo-overlay">
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M15 3H19V7M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 15V19H3V15M7 10L12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <button class="photo-action">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 8L16 21H8L6 8M4 8H20M10 12V17M14 12V17M9 8V4H15V8" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <span class="photo-date">2 hari lalu</span>
+                                <span class="photo-size">1920x1080</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="settings-section">
+                    <h2 class="settings-title">Pengaturan</h2>
+                    
+                    <div class="settings-grid">
+                        <!-- Camera Settings -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Pengaturan Kamera</h3>
+                            <div class="settings-group">
+                                <label class="settings-label">
+                                    <span>Resolusi</span>
+                                    <select class="settings-select">
+                                        <option>1920 x 1080 (Full HD)</option>
+                                        <option>2560 x 1440 (2K)</option>
+                                        <option>3840 x 2160 (4K)</option>
+                                        <option>1280 x 720 (HD)</option>
+                                    </select>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Rasio Aspek</span>
+                                    <select class="settings-select">
+                                        <option>16:9</option>
+                                        <option>4:3</option>
+                                        <option>1:1</option>
+                                        <option>9:16</option>
+                                    </select>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Kualitas</span>
+                                    <input type="range" min="1" max="100" value="90" class="settings-slider">
+                                    <span class="slider-value">90%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Format File</span>
+                                    <select class="settings-select">
+                                        <option>JPEG</option>
+                                        <option>PNG</option>
+                                        <option>WebP</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Timer Settings -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Pengaturan Timer</h3>
+                            <div class="settings-group">
+                                <label class="settings-label">
+                                    <span>Durasi Countdown</span>
+                                    <select class="settings-select">
+                                        <option>3 Detik</option>
+                                        <option>5 Detik</option>
+                                        <option>10 Detik</option>
+                                        <option>15 Detik</option>
+                                    </select>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Suara Countdown</span>
+                                    <input type="checkbox" class="settings-checkbox" checked>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Suara Shutter</span>
+                                    <input type="checkbox" class="settings-checkbox" checked>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Mode Burst</span>
+                                    <select class="settings-select">
+                                        <option>Off</option>
+                                        <option>3 Foto</option>
+                                        <option>5 Foto</option>
+                                        <option>10 Foto</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Display Settings -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Pengaturan Tampilan</h3>
+                            <div class="settings-group">
+                                <label class="settings-label">
+                                    <span>Brightness</span>
+                                    <input type="range" min="0" max="100" value="100" class="settings-slider">
+                                    <span class="slider-value">100%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Contrast</span>
+                                    <input type="range" min="0" max="200" value="100" class="settings-slider">
+                                    <span class="slider-value">100%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Saturation</span>
+                                    <input type="range" min="0" max="200" value="100" class="settings-slider">
+                                    <span class="slider-value">100%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Tampilkan Grid</span>
+                                    <input type="checkbox" class="settings-checkbox">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Storage Settings -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Pengaturan Penyimpanan</h3>
+                            <div class="settings-group">
+                                <label class="settings-label">
+                                    <span>Auto Download</span>
+                                    <input type="checkbox" class="settings-checkbox" checked>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Simpan dengan Watermark</span>
+                                    <input type="checkbox" class="settings-checkbox">
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Lokasi Penyimpanan</span>
+                                    <select class="settings-select">
+                                        <option>Browser Download</option>
+                                        <option>Cloud Storage</option>
+                                        <option>Local Server</option>
+                                    </select>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Nama File</span>
+                                    <select class="settings-select">
+                                        <option>Timestamp</option>
+                                        <option>Sequential</option>
+                                        <option>Random</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Effect Settings -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Pengaturan Efek</h3>
+                            <div class="settings-group">
+                                <label class="settings-label">
+                                    <span>Sharpness</span>
+                                    <input type="range" min="0" max="100" value="50" class="settings-slider">
+                                    <span class="slider-value">50%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Blur Background</span>
+                                    <input type="range" min="0" max="20" value="0" class="settings-slider">
+                                    <span class="slider-value">0px</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Vignette</span>
+                                    <input type="range" min="0" max="100" value="0" class="settings-slider">
+                                    <span class="slider-value">0%</span>
+                                </label>
+
+                                <label class="settings-label">
+                                    <span>Auto Enhancement</span>
+                                    <input type="checkbox" class="settings-checkbox">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- About -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Tentang Aplikasi</h3>
+                            <div class="settings-group">
+                                <div class="about-info">
+                                    <p><strong>PhotoBooth Pro</strong></p>
+                                    <p>Versi 1.0.0</p>
+                                    <p>© 2025 PhotoBooth Pro</p>
+                                    <p class="mt-2">Aplikasi photobooth profesional dengan fitur lengkap untuk mengambil, mengedit, dan menyimpan foto berkualitas tinggi.</p>
+                                </div>
+                                <button class="btn-primary full-width mt-3">Reset Semua Pengaturan</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 PhotoBooth Pro. Semua hak dilindungi.</p>
+            <div class="footer-links">
+                <a href="#privacy">Kebijakan Privasi</a>
+                <a href="#terms">Syarat & Ketentuan</a>
+                <a href="#help">Bantuan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
