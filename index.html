@@ -46,29 +46,36 @@
                     <div class="camera-container">
                         <!-- Camera Preview Area -->
                         <div class="camera-preview">
-                            <div class="preview-placeholder">
+                            <!-- video preview element (hidden until camera starts) -->
+                            <video id="videoPreview" autoplay playsinline class="hidden"></video>
+
+                            <!-- canvas used to capture snapshots (kept hidden) -->
+                            <canvas id="captureCanvas" class="hidden"></canvas>
+
+                            <div class="preview-placeholder center">
                                 <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
                                     <circle cx="60" cy="60" r="50" stroke="#ae75fb" stroke-width="3" stroke-dasharray="5 5"/>
                                     <path d="M60 30L45 45H36V81H84V45H75L60 30Z" fill="#ae75fb" opacity="0.3"/>
                                     <circle cx="60" cy="63" r="15" stroke="#ae75fb" stroke-width="3"/>
                                 </svg>
                                 <p>Kamera Siap</p>
-                            </div>
-                            
-                            <!-- Countdown Overlay -->
-                            <div class="countdown-overlay">
-                                <div class="countdown-number">3</div>
+                                <small class="text-muted">Izinkan akses kamera pada browser</small>
                             </div>
 
-                            <!-- Filter Preview Overlays -->
-                            <div class="filter-overlay grayscale"></div>
-                            <div class="filter-overlay sepia"></div>
-                            <div class="filter-overlay vintage"></div>
-                            
-                            <!-- Frame Overlays -->
-                            <div class="frame-overlay frame-classic"></div>
-                            <div class="frame-overlay frame-heart"></div>
-                            <div class="frame-overlay frame-polaroid"></div>
+                            <!-- Countdown Overlay (controlled by JS) -->
+                            <div class="countdown-overlay hidden" id="countdownOverlay">
+                                <div class="countdown-number" id="countdownNumber">3</div>
+                            </div>
+
+                            <!-- Filter Preview Overlays (visual only) -->
+                            <div class="filter-overlay grayscale hidden"></div>
+                            <div class="filter-overlay sepia hidden"></div>
+                            <div class="filter-overlay vintage hidden"></div>
+
+                            <!-- Frame Overlays (visual only) -->
+                            <div class="frame-overlay frame-classic hidden"></div>
+                            <div class="frame-overlay frame-heart hidden"></div>
+                            <div class="frame-overlay frame-polaroid hidden"></div>
                         </div>
 
                         <!-- Camera Controls -->
@@ -86,6 +93,11 @@
                                 </label>
                             </div>
 
+                            <!-- start/stop camera -->
+                            <div class="control-group">
+                                <button id="startCameraBtn" class="control-button" title="Start/Stop Kamera" aria-pressed="false">▶</button>
+                            </div>
+
                             <div class="control-group">
                                 <input type="checkbox" id="timer-toggle" class="toggle-input">
                                 <label for="timer-toggle" class="control-button">
@@ -98,7 +110,7 @@
                                 </label>
                             </div>
 
-                            <button class="capture-button">
+                            <button id="captureBtn" class="capture-button" title="Ambil Foto">
                                 <span class="capture-ring"></span>
                                 <span class="capture-dot"></span>
                             </button>
@@ -684,6 +696,8 @@
                 <a href="#help">Bantuan</a>
             </div>
         </div>
-    </footer>
+</footer>
+
+    <script src="client.js"></script>
 </body>
 </html>
