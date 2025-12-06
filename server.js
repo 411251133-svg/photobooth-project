@@ -6,16 +6,15 @@ const fs = require("fs");
 const app = express();
 const PORT = 3000;
 
-// Middleware
-app.use(cors());
-app.use(express.json({ limit: "50mb" }));
-app.use(express.static("."));
-
 // Ensure uploads directory exists
 const uploadsDir = "./uploads";
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir);
 }
+
+// Middleware
+app.use(cors());
+app.use(express.json({ limit: "50mb" }));
 
 // Upload base64 image
 app.post("/api/upload-base64", (req, res) => {
@@ -65,6 +64,9 @@ app.delete("/api/photos/:filename", (req, res) => {
 
 // Serve uploads
 app.use("/uploads", express.static(uploadsDir));
+
+// Serve static files (html, css, js) — MUST be last
+app.use(express.static("."));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
