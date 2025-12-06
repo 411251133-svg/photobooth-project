@@ -121,6 +121,26 @@
     }
   }
 
+  function handleGalleryImage(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      video.src = e.target.result;
+      video.classList.remove("hidden");
+      preview.classList.add("active");
+
+      // Draw image to canvas for capture
+      const img = new Image();
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
   async function refreshGallery() {
     if (!galleryGrid) return;
     try {
@@ -239,6 +259,5 @@
     }
   });
 
-  refreshBtn?.addEventListener("click", refreshGallery);
   window.addEventListener("load", refreshGallery);
 })();
