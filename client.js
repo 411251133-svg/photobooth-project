@@ -11,7 +11,6 @@
   const countdownOverlay = document.getElementById("countdownOverlay");
   const countdownNumber = document.getElementById("countdownNumber");
   const galleryGrid = document.querySelector(".gallery-grid");
-  const refreshBtn = document.getElementById("refreshGalleryBtn");
   const preview = document.querySelector(".camera-preview");
 
   let stream = null;
